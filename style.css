@@ -1,0 +1,37 @@
+html {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(100, 149, 237, 0.6),
+        rgba(100, 149, 237, 0.6) 10px,
+        rgba(30, 144, 255, 0.4) 10px,
+        rgba(30, 144, 255, 0.4) 20px
+    );
+}
+
+body {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 95px;
+}
+
+#playerSelectionButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.playerSelectionButton {
+    background-color: cornflowerblue;
+    font-size: 40px;
+    font-weight: 800;
+    padding: 5px 10px;
+}
+
+#results {
+    text-align: center;
+    margin-top: 50px;
+}

@@ -1,3 +1,13 @@
+html {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(100, 149, 237, 0.6),
+        rgba(100, 149, 237, 0.6) 10px,
+        rgba(30, 144, 255, 0.4) 10px,
+        rgba(30, 144, 255, 0.4) 20px
+    );
+}
+
 body {
     display: flex;
     flex-direction: column;

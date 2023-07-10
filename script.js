@@ -17,6 +17,7 @@ function getComputerChoice() {
 // @param playerSelection The player's inputted choice between either ‘Rock’, ‘Paper’ or ‘Scissors’.
 // @param computerSelection The computer's generated choice between either ‘Rock’, ‘Paper’ or ‘Scissors’.
 function playRound(playerSelection, computerSelection) {
+    latestComputerChoice = computerSelection;
     playerSelection = playerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
@@ -63,11 +64,12 @@ function playRound(playerSelection, computerSelection) {
 // Function that will update the results displayed on the page.
 function updateScores(result)
 {
-    document.getElementById("outcome").innerHTML = result;
+    document.getElementById("outcome").innerHTML = `The computer chose: ${latestComputerChoice}<br>` + result;
     document.getElementById("computerScore").innerHTML = "Computer Score: " + computerScore;
     document.getElementById("playerScore").innerHTML = "Player Score: " + playerScore;
 }
 
+let latestComputerChoice = "";
 let computerScore = 0;
 let playerScore = 0;
 

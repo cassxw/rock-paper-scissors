@@ -74,6 +74,12 @@ let computerScore = 0;
 let playerScore = 0;
 
 const buttons = document.querySelectorAll('.playerSelectionButton');
+
 buttons.forEach(button => button.addEventListener('click', () => {
+    button.classList.add('pressed');
     updateScores(playRound(button.id, getComputerChoice()));
+}));
+
+buttons.forEach(button => button.addEventListener('transitionend', () => {
+    button.classList.remove('pressed');
 }));

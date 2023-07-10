@@ -30,7 +30,17 @@ body {
     background-color: cornflowerblue;
     font-size: 40px;
     font-weight: 800;
+    text-shadow: 0 0 2.5px black;
+
     padding: 5px 10px;
+
+    transition: all .15s ease;
+}
+
+.pressed {
+    transform: scale(1.1);
+    border-color: #00d9ff;
+    box-shadow: 0 0 1rem #0055ff;
 }
 
 #results {

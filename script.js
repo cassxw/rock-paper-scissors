@@ -17,6 +17,7 @@ function getComputerChoice() {
 // @param playerSelection The player's inputted choice between either ‘Rock’, ‘Paper’ or ‘Scissors’.
 // @param computerSelection The computer's generated choice between either ‘Rock’, ‘Paper’ or ‘Scissors’.
 function playRound(playerSelection, computerSelection) {
+    latestComputerChoice = computerSelection;
     playerSelection = playerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
@@ -61,17 +62,39 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Function that will update the results displayed on the page.
-function updateScores(result)
-{
-    document.getElementById("outcome").innerHTML = result;
+function updateScores(result) {
+    document.getElementById("outcome").innerHTML = `The computer chose: ${latestComputerChoice}<br>` + result;
     document.getElementById("computerScore").innerHTML = "Computer Score: " + computerScore;
     document.getElementById("playerScore").innerHTML = "Player Score: " + playerScore;
+
+    if (computerScore === 5) {
+        document.getElementById("outcome").innerHTML += "<br>Sorry, the computer beat you! Please try again by refreshing :(";
+        disableButtons();
+    } else if (playerScore === 5) {
+        document.getElementById("outcome").innerHTML += "<br>Congratulations, you beat the computer! Well done :D";
+        disableButtons();
+    }
 }
 
+// Function that disables player selection buttons.
+function disableButtons() {
+    const buttons = document.querySelectorAll(".playerSelectionButton");
+    buttons.forEach(button => {
+        button.classList.add("disabled");
+    });
+}
+
+let latestComputerChoice = "";
 let computerScore = 0;
 let playerScore = 0;
 
 const buttons = document.querySelectorAll('.playerSelectionButton');
+
 buttons.forEach(button => button.addEventListener('click', () => {
+    button.classList.add('pressed');
     updateScores(playRound(button.id, getComputerChoice()));
+}));
+
+buttons.forEach(button => button.addEventListener('transitionend', () => {
+    button.classList.remove('pressed');
 }));
